@@ -22,12 +22,12 @@ export default {
         maxLength: 96,
       },
     },
-    // {
-      // name: "author",
-      // type: "reference",
-      // title: "Author",
-      // to: { type: 'author' },
-    // },
+    {
+      name: "author",
+      type: "reference",
+      title: "Author",
+      to: { type: 'author' },
+    },
     {
       name: "mainImage",
       type: "image",
