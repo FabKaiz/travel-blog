@@ -5,7 +5,6 @@ import Link from "next/link";
 import Card from '../components/Card/Card'
 
 const Home = ({ posts }) => {
-  console.log(posts);
   return (
     <div className="dashboard">
       <Head>
