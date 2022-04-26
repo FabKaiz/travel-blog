@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "trebuchet MS", Arial, Helvetica, sans-serif;
+  color: rgb(70, 70, 70);
 }
 
 a {
@@ -13,4 +13,9 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* App */
+.app__container {
+  background-color: rgb(145, 156, 143);
 }
