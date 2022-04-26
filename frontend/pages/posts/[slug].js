@@ -1,0 +1,101 @@
+import groq from "groq";
+import Tag from "../../components/Tag/Tag";
+import { PortableText } from "@portabletext/react";
+import { urlFor } from "../../lib/sanity";
+import { getClient } from "../../lib/sanity.server";
+import styles from "./post.module.css";
+import Image from "next/image";
+
+const PostComponents = {
+  types: {
+    image: ({ value }) => {
+      return (
+        <Image
+          className={styles.post__image}
+          alt={value.alt || "post"}
+          src={urlFor(value).toString()}
+          layout="responsive"
+          width={700}
+          height={475}
+          priority
+        />
+      );
+    },
+  },
+};
+
+const Post = ({ post }) => {
+  const { title, categories, body, authorImage, username, about, postedAt } =
+    post;
+
+  return (
+    <>
+      {post && (
+        <article className={styles.post__container}>
+          <h1>{title}</h1>
+          <hr />
+          <div className="tag__container">
+            {categories?.map((category) => (
+              <Tag key={category?.title + '-' + title} title={category.title} />
+            ))}
+          </div>
+
+          <PortableText value={body} components={PostComponents} />
+          <hr />
+          <div className={styles.post__info}>
+            <div className={styles.author__container}>
+              <Image
+                className="avatar"
+                src={urlFor(authorImage).toString()}
+                alt={username + " avatar"}
+                width={50}
+                height={50}
+              />
+              <h3>
+                Author: <strong>{username}</strong>
+              </h3>
+              <p>About author</p>
+              <p>{about}</p>
+
+              <div className={styles.map__container}></div>
+            </div>
+          </div>
+        </article>
+      )}
+    </>
+  );
+};
+
+const query = groq`*[_type == "post" && slug.current == $slug][0] {
+  title,
+  "username": author->username,
+  "about": author->bio,
+  "categories": categories[]->{id, title},
+  "authorImage": author->avatar,
+  body,
+  publishedAt,
+  mainImage,
+  postedAt
+}`;
+
+export async function getStaticPaths() {
+  const paths = await getClient().fetch(
+    groq`*[_type == "post" && defined(slug.current)][].slug.current`
+  );
+
+  return {
+    paths: paths.map((slug) => ({ params: { slug } })),
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params, preview = false }) {
+  const post = await getClient(preview).fetch(query, { slug: params.slug });
+
+  return {
+    props: {
+      post,
+    },
+  };
+}
+export default Post;
