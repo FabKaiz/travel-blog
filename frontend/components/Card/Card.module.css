@@ -12,21 +12,8 @@
   width: 100%;
 }
 
-.avatar {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
 .card__info {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.tag__container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 }

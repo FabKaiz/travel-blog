@@ -4,14 +4,15 @@ import { urlFor } from '../../lib/sanity'
 import Image from 'next/image';
 
 const Card = ({ post }) => {
+  const { publishedAt, mainImage, title, username, authorImage, categories } = post
   return (
     <div className={styles.card__container}>
-      <h2>{post.title}</h2>
-      <p>Published on: {new Date(post.publishedAt).toDateString()} </p>
+      <h2>{title}</h2>
+      <p>Published on: {new Date(publishedAt).toDateString()} </p>
 
       <Image
-        src={urlFor(post.mainImage).toString()}
-        alt={post.title + " image"}
+        src={urlFor(mainImage).toString()}
+        alt={title + " image"}
         className={styles.main__image}
         layout="responsive"
         width={700}
@@ -21,20 +22,20 @@ const Card = ({ post }) => {
       <hr />
 
       <div className={styles.card__info}>
-        <p>Posted by: {post.username}</p>
+        <p>Posted by: {username}</p>
         <Image
-          src={urlFor(post.authorImage).toString()}
-          alt={post.username + " avatar"}
-          className={styles.avatar}
+          src={urlFor(authorImage).toString()}
+          alt={username + " avatar"}
+          className="avatar"
           width={50}
           height={50}
 
         />
       </div>
 
-      <div className={styles.tag__container}>
-        {post.categories.map((category) => (
-            <Tag key={category?.title + '-' + post.title} title={category?.title} />
+      <div className="tag__container">
+        {categories.map((category) => (
+            <Tag key={category?.title + '-' + title} title={category?.title} />
         ))}
       </div>
       
