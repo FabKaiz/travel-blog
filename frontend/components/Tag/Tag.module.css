@@ -1,0 +1,14 @@
+.tag {
+  color: rgb(255, 255, 255);
+  background-color: #020202;
+  padding: 5px 10px;
+  margin: 10px 0 10px 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tag:nth-child(1) {
+  margin-left: 0 !important;
+}

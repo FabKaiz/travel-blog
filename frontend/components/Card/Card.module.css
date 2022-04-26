@@ -1,0 +1,32 @@
+.card__container {
+  background-color: rgb(255, 255, 255);
+  width: 400px;
+  padding: 10px;
+  margin: 28px;
+  border-radius: 10px;
+  box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.post__image,
+.main__image {
+  width: 100%;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag__container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
