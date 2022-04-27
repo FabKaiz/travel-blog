@@ -18,6 +18,7 @@ a {
 /* App */
 .app__container {
   background-color: rgb(145, 156, 143);
+  min-height: 100vh;
 }
 
 .posts__container {

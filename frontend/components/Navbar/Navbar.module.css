@@ -16,3 +16,13 @@
 .nav__item_container img {
   transform: scale(1.7);
 }
+
+@media screen and (max-width: 400px) {
+  .nav__container {
+    padding: 0 10px;
+  }
+
+  .nav__container p {
+    max-width: 100px;
+  }
+}

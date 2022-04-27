@@ -1,12 +1,13 @@
 .card__container {
   background-color: rgb(255, 255, 255);
-  min-width: 400px;
+  min-width: 250px;
   width: 100%;
-  max-width: 750px;
+  max-width: 650px;
   padding: 10px;
   margin: 28px;
   border-radius: 10px;
   box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
 }
 
 .card__container h2 {
@@ -24,4 +25,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+  .card__container {
+    margin: 20px 8px;
+  }
 }
