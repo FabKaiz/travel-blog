@@ -30,7 +30,7 @@ const Card = forwardRef(({ onClick, href, post }, ref) => {
       <hr />
 
       <div className={styles.card__info}>
-        <p>Posted by: {username}</p>
+        <p>Posted by: <strong>{username}</strong></p>
         <Image
           src={urlFor(authorImage).toString()}
           alt={username + ' avatar'}
