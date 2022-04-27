@@ -16,7 +16,7 @@ const PostComponents = {
           <img
             className={styles.post__image}
             alt={value.alt || 'post'}
-            src={urlFor(value).toString()}
+            src={urlFor(value).url()}
           />
         </div>
       )
