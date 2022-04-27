@@ -18,7 +18,6 @@ a {
 /* App */
 .app__container {
   background-color: rgb(145, 156, 143);
-  display: flex;
 }
 
 .posts__container {
