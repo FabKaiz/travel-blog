@@ -51,17 +51,46 @@ a {
 
 /* Scrollbar */
 body::-webkit-scrollbar {
-  width: 12px;               /* width of the entire scrollbar */
+  width: 12px; /* width of the entire scrollbar */
 }
 body::-webkit-scrollbar-track {
-  background: rgba(105, 116, 104, 0.404);        /* color of the tracking area */
+  background: rgba(105, 116, 104, 0.404); /* color of the tracking area */
 }
 body::-webkit-scrollbar-thumb {
-  background-color: rgb(96, 104, 94);    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 2px solid rgba(189, 199, 188, 0.704);  /* creates padding around scroll thumb */
+  background-color: rgb(96, 104, 94); /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 2px solid rgba(189, 199, 188, 0.704); /* creates padding around scroll thumb */
 }
 
 body::-webkit-scrollbar-thumb:hover {
   background-color: rgb(79, 87, 78);
+}
+
+/* NProgress => loading bar on top of the screen */
+#nprogress .bar {
+  height: 6px;
+  background: rgb(145, 156, 143);
+}
+
+#nprogress .peg {
+  box-shadow: none;
+}
+
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
+}
+
+.loading {
+  padding: 6px;
+  background-color: white;
+  color: white;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: rgb(145, 156, 143);
+  border-left-color: rgb(145, 156, 143);
 }

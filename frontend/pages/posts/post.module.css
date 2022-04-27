@@ -30,7 +30,6 @@
   width: 48%;
 }
 
-
 .post__image {
   max-height: 650px;
   min-width: 200px;
@@ -56,4 +55,10 @@
 
 .author__container h3 {
   font-weight: normal;
+}
+
+@media screen and (max-width: 450px) {
+  .post__content {
+    margin: 20px 8px;
+  }
 }
