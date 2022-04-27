@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import groq from 'groq'
 import Tag from '../../components/Tag/Tag'
 import { PortableText } from '@portabletext/react'
@@ -11,15 +12,13 @@ const PostComponents = {
   types: {
     image: ({ value }) => {
       return (
-        <Image
-          className={styles.post__image}
-          alt={value.alt || 'post'}
-          src={urlFor(value).toString()}
-          layout="responsive"
-          width={700}
-          height={475}
-          priority
-        />
+        <div className={styles.post__image_container}>
+          <img
+            className={styles.post__image}
+            alt={value.alt || 'post'}
+            src={urlFor(value).toString()}
+          />
+        </div>
       )
     },
   },
@@ -32,38 +31,41 @@ const Post = ({ post }) => {
   return (
     <>
       {post && (
-        <article className={styles.post__container}>
-          <h1>{title}</h1>
-          <hr />
-          <div className="tag__container">
-            {categories?.map((category) => (
-              <Tag key={category?.title + '-' + title} title={category.title} />
-            ))}
-          </div>
-
-          <PortableText value={body} components={PostComponents} />
-          <hr />
-          <div className={styles.post__info}>
-            <div className={styles.author__container}>
-              <Image
-                className="avatar"
-                src={urlFor(authorImage).toString()}
-                alt={username + ' avatar'}
-                width={50}
-                height={50}
-              />
-              <h3>
-                Author: <strong>{username}</strong>
-              </h3>
-              <p>About author</p>
-              <p>{about}</p>
-
+        <div className={styles.post__container}>
+          <article className={styles.post__content}>
+            <h1>{title}</h1>
+            <hr />
+            <div className="tag__container">
+              {categories?.map((category) => (
+                <Tag
+                  key={category?.title + '-' + title}
+                  title={category.title}
+                />
+              ))}
+            </div>
+            <PortableText value={body} components={PostComponents} />
+            <hr />
+            <div className={styles.post__info}>
+              <div className={styles.author__container}>
+                <Image
+                  className="avatar"
+                  src={urlFor(authorImage).toString()}
+                  alt={username + ' avatar'}
+                  width={50}
+                  height={50}
+                />
+                <h3>
+                  Author: <strong>{username}</strong>
+                </h3>
+                <p>About the author:</p>
+                <p>{about}</p>
+              </div>
               <div className={styles.map__container}>
                 <Map longitude={postedAt?.lng} latitude={postedAt?.lat} />
               </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
       )}
     </>
   )
