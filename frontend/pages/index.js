@@ -19,9 +19,7 @@ const Home = ({ posts }) => {
             key={post._id.toString()}
             passHref
           >
-            <a>
-              <Card post={post} />
-            </a>
+            <Card post={post} />
           </Link>
         ))}
       </div>
