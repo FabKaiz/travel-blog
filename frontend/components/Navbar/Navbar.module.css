@@ -1,10 +1,12 @@
 .nav__container {
   background-color: rgb(255, 255, 255);
-  min-height: 100vh;
-  width: 200px;
+  height: 100px;
+  width: 100%;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 20px;
+  overflow: hidden;
 }
 
 .nav__item_container {
@@ -12,5 +14,5 @@
 }
 
 .nav__item_container img {
-  transform: scale(1.6);
+  transform: scale(1.7);
 }
