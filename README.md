@@ -8,5 +8,3 @@
   * Uploaded with Vercel
  
  ### [Click here to see the result 🖼️](https://travel-blog-snowy.vercel.app/)
-
-[website screenshot](https://i.ibb.co/gZm21DR/sanity-Stripe.jpg)
